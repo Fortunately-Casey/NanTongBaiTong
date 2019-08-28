@@ -5,15 +5,32 @@
   </div>
 </template>
 <script>
-import { GetInitCode } from "@/api/init"
+import { GetInitCode, GetAuthCode } from "@/api/init"
 export default {
   name: 'App',
   created() {
     this._getInitCode();
+    this._getAuthCode();
+    
   },
   methods:{
     _getInitCode() {
-      GetInitCode();
+      GetInitCode({
+      }).then((resp) => {
+        if(resp.data.msg === 'success'){
+          let initCode = resp.data.initCode
+          sc.config({
+            debug: false,
+            appId: '3f9cbb3f498b4ac0be0045b7e54994a7',  
+            initCode
+          })
+        } 
+      })
+    },
+    _getAuthCode() {
+      GetAuthCode().then((resp) => {
+        console.log('authCode',resp)
+      })
     }
   }
 }
