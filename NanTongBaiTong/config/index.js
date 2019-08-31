@@ -6,20 +6,23 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api':{
-        target:'http://119.3.198.35:8080',
-        changeOrigin:true,
+      '/api': {
+        target: 'https://119.3.198.35:8080',
+        // changeOrigin: true,
         pathRewrite: {
           '^/api': ''
+        },
+        changeOrigin: true,
+        secure: false,
+        headers: {
+          Referer: 'https://119.3.198.35:8080'
         }
       }
     },
-
     // Various Dev Server settings
     host: '192.168.3.61', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
@@ -28,7 +31,6 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
     /**
      * Source Maps
      */
