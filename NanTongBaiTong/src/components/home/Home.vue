@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     goToOldTree() {
-      window.location.href = "http://www.ntschy.com:8488/TreeDetail.html";
+      window.location.href = "http://www.ntschy.com:8488/TreeAll.html";
     },
     confirm() {
       var vm = this;
@@ -64,9 +64,13 @@ export default {
       // }).then((resp) => {
       //   console.log(resp);
       // })
-      console.log(formData);
       TextAndImage(formData).then(resp => {
         console.log(resp);
+        if(resp.data.msg == 'success') {
+          alert('成功！');
+        }else {
+          alert('失败！');
+        }
       });
     },
     getFile(event) {
@@ -84,6 +88,13 @@ export default {
     height: 50px;
     color: #ffcd32;
     font-size: 16px;
+    border: 1px solid #ffcd32;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    margin-bottom: 20px;
   }
   .phone-number,
   .image {

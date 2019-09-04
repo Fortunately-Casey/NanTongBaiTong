@@ -1,8 +1,8 @@
 import axios from 'axios';
-
+var root = process.env.API_HOST;
 // 获取initCode和用户信息
 export function GetInitCode(params) {
-  const url = "/api/baitongwebapi/rest/getInitCode"
+  const url = root + "/baitongwebapi/rest/getInitCode"
   return axios.get(url, {
     params: params
   }).then((res) => {
@@ -14,7 +14,7 @@ export function GetInitCode(params) {
 
 // 获取用户信息
 export function GetUserInfo(params) {
-  const url = "/api/baitongwebapi/rest/getUserInfo"
+  const url = root + "/baitongwebapi/rest/getUserInfo"
   return axios.post(url, params).then((res) => {
     return Promise.resolve(res)
   }).catch((err) => {
@@ -24,7 +24,7 @@ export function GetUserInfo(params) {
 
 // 图文提交
 export function TextAndImage(params) {
-  const url = "/api/baitongwebapi/rest/upload"
+  const url = root + "/baitongwebapi/rest/upload"
   return axios.post(url, params, {
     headers: {
       'Content-Type': 'false'
