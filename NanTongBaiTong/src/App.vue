@@ -7,7 +7,7 @@
 <script>
 import { GetInitCode, GetUserInfo } from "@/api/init";
 import MHeader from "./components/header/Header";
-import MHome from "./components/home/Home"
+import MHome from "./components/home/Home";
 export default {
   name: "App",
   data() {
@@ -32,7 +32,7 @@ export default {
             initCode
           });
           sc.ready(() => {
-            console.log('111')
+            console.log('111');
             sc.userAuth({ appId: "3f9cbb3f498b4ac0be0045b7e54994a7" }, res => {
               if (res.code === 0) {
                 const requestCode = res.data.requestCode;

@@ -56,7 +56,7 @@ export default {
       formData.append("remark", vm.remark);
       formData.append("mobile", vm.mobile);
       formData.append("openId", vm.openId);
-      formData.append('file',this.file);
+      formData.append('file', this.file);
       // TextAndImage({
       //   remark:vm.remark,
       //   mobile:vm.mobile,
