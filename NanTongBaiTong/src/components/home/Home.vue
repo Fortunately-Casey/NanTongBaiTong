@@ -57,13 +57,6 @@ export default {
       formData.append("mobile", vm.mobile);
       formData.append("openId", vm.openId);
       formData.append('file', this.file);
-      // TextAndImage({
-      //   remark:vm.remark,
-      //   mobile:vm.mobile,
-      //   openId:vm.openId
-      // }).then((resp) => {
-      //   console.log(resp);
-      // })
       TextAndImage(formData).then(resp => {
         console.log(resp);
         if(resp.data.msg == 'success') {
